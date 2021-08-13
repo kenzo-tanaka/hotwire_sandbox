@@ -1,6 +1,8 @@
-<%= form_with(model: [ @message.room, @message ]) do |form| %>
-  <div class="field">
-    <%= form.text_field :content %>
-    <%= form.submit "Update" %>
-  </div>
+<%= turbo_frame_tag 'message' do %>
+  <%= form_with(model: [ @message.room, @message ]) do |form| %>
+    <div class="field">
+      <%= form.text_field :content %>
+      <%= form.submit "Update" %>
+    </div>
+  <% end %>
 <% end %>
