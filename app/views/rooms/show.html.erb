@@ -1,5 +1,8 @@
 <p id="notice"><%= notice %></p>
 
+<%= month_calendar do |date| %>
+  <%= date.day %>
+<% end %>
 
 <%= turbo_frame_tag 'room' do %>
   <p>
