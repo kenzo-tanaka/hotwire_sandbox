@@ -29,6 +29,10 @@
     </div>
 
     <div>
+      <%= link_to 'Delete', room_path(@room), method: :delete, data: { confirm: 'Are you sure?' } %>
+    </div>
+
+    <div>
       <%= link_to 'Cancel', rooms_path %>
     </div>
   <% end %>
