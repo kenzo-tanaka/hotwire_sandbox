@@ -8,7 +8,6 @@ class RoomsController < ApplicationController
 
   # GET /rooms/1 or /rooms/1.json
   def show
-    turbo_stream.replace('calendar', partial: 'calendar')
   end
 
   # GET /rooms/new
