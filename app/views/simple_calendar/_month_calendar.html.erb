@@ -25,7 +25,7 @@
               <% else %>
 
                 <% if !sorted_events.fetch(day, []).any? %>
-                  <%= turbo_frame_tag "new-room-#{day}" do %>
+                  <%= turbo_frame_tag "calendar-#{day}" do %>
                     <%= link_to new_room_path(date: day) do %>
                       <% passed_block.call day, sorted_events.fetch(day, []) %>
                     <% end %>

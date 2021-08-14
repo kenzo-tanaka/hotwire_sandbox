@@ -1,6 +1,6 @@
 <h1>Editing Room</h1>
 
-<%= turbo_frame_tag dom_id @room do %>
+<%= turbo_frame_tag "calendar-#{params[:date]}" do %>
   <%= form_with(model: @room) do |form| %>
     <% if @room.errors.any? %>
       <div id="error_explanation">

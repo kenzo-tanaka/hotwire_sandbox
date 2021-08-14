@@ -1,6 +1,6 @@
 <h1>New Room</h1>
 
-<%= turbo_frame_tag "new-room-#{params[:date]}" do %>
+<%= turbo_frame_tag "calendar-#{params[:date]}" do %>
   <%= form_with(model: @room) do |form| %>
     <% if @room.errors.any? %>
       <div id="error_explanation">
