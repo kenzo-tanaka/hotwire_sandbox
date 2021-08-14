@@ -26,7 +26,7 @@
 
                 <% if !sorted_events.fetch(day, []).any? %>
                   <%= turbo_frame_tag 'new-room' do %>
-                    <%= link_to 'New', new_room_path %>
+                    <%= link_to 'New', new_room_path(date: day) %>
                   <% end %>
                 <% end %>
               <% end %>
