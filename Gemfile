@@ -27,7 +27,7 @@ gem 'redis', '~> 4.0'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'hotwire-rails'
-
+gem "simple_calendar", "~> 2.4"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
