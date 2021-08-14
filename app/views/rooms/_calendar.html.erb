@@ -2,8 +2,8 @@
   <%= date.day %>
 
   <% rooms.each do |room| %>
-    <div>
-      <%= room.name %>
-    </div>
+    <%= turbo_frame_tag 'room' do %>
+      <%= link_to room.name, edit_room_path(room) %>
+    <% end %>
   <% end %>
 <% end %>
