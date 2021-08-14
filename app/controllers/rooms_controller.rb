@@ -38,11 +38,13 @@ class RoomsController < ApplicationController
   def update
     respond_to do |format|
       if @room.update(room_params)
-        format.html { redirect_to @room, notice: "Room was successfully updated." }
-        format.json { render :show, status: :ok, location: @room }
+        format.html { redirect_to rooms_path, notice: "Room was successfully updated." }
+
+        # TODO: Mapping updated rooms to calendar.
+        # @rooms = Room.all
+        # turbo_stream.replace('calendar', partial: 'calendar')
       else
         format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @room.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -64,6 +66,6 @@ class RoomsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def room_params
-      params.require(:room).permit(:name)
+      params.require(:room).permit(:name, :start_time)
     end
 end

@@ -1,3 +1,9 @@
-<%= month_calendar do |date| %>
+<%= month_calendar events: @rooms do |date, rooms| %>
   <%= date.day %>
+
+  <% rooms.each do |room| %>
+    <%= turbo_frame_tag dom_id room do %>
+      <%= link_to room.name, edit_room_path(room) %>
+    <% end %>
+  <% end %>
 <% end %>
