@@ -1,5 +1,9 @@
 <p id="notice"><%= notice %></p>
 
+<%= turbo_frame_tag 'calendar' do %>
+  <%= render 'calendar' %>
+<% end %>
+
 <h1>Rooms</h1>
 
 <table>
