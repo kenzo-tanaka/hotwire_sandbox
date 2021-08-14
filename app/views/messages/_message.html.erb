@@ -1,4 +1,4 @@
-<%= turbo_frame_tag 'message' do %>
+<%= turbo_frame_tag dom_id message do %>
   <p id="<%= dom_id message %>">
     <%= message.created_at.to_s(:short) %>: <%= message.content %>
     <%= link_to 'Edit', edit_room_message_path(message.room, message) %>

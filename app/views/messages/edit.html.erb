@@ -1,4 +1,4 @@
-<%= turbo_frame_tag 'message' do %>
+<%= turbo_frame_tag dom_id @message do %>
   <%= form_with(model: [ @message.room, @message ]) do |form| %>
     <div class="field">
       <%= form.text_field :content %>
