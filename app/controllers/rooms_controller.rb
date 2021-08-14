@@ -39,6 +39,10 @@ class RoomsController < ApplicationController
     respond_to do |format|
       if @room.update(room_params)
         format.html { redirect_to rooms_path, notice: "Room was successfully updated." }
+
+        # TODO: Mapping updated rooms to calendar.
+        # @rooms = Room.all
+        # turbo_stream.replace('calendar', partial: 'calendar')
       else
         format.html { render :edit, status: :unprocessable_entity }
       end
