@@ -23,6 +23,12 @@
                 <% capture_haml(day, sorted_events.fetch(day, []), &passed_block) %>
               <% else %>
                 <% passed_block.call day, sorted_events.fetch(day, []) %>
+
+                <% if !sorted_events.fetch(day, []).any? %>
+                  <%= turbo_frame_tag 'new-room' do %>
+                    <%= link_to 'New', new_room_path %>
+                  <% end %>
+                <% end %>
               <% end %>
             <% end %>
           <% end %>
