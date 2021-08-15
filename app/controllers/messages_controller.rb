@@ -8,9 +8,7 @@ class MessagesController < ApplicationController
   def create
     @message = @room.messages.create!(message_params)
 
-    respond_to do |format|
-      format.html { redirect_to @room }
-    end
+    render turbo_stream: turbo_stream.append(:messages, partial: 'messages/message', locals: { message: @message })
   end
 
   def edit
