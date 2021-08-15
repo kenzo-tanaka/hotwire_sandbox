@@ -1,17 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<%= turbo_frame_tag 'calendar' do %>
-  <%= month_calendar do |date| %>
-    <%= date.day %>
-  <% end %>
-<% end %>
-
 <%= turbo_frame_tag 'room' do %>
   <p>
     Name: <%= @room.name %>
   </p>
   <p>
     <%= link_to 'Edit', edit_room_path(@room) %> |
+
+    <%#= data-turbo-frame属性によって通常リンクとして動作させる  %>
     <%= link_to 'Back', rooms_path, "data-turbo-frame": "_top" %>
   </p>
 <% end %>
@@ -21,5 +17,6 @@
   <%= render @room.messages %>
 </div>
 
+<%#= target '_top' としていることでフォームが送信されたときBodyが全て差し変わる  %>
 <%= turbo_frame_tag 'new_message', src: new_room_message_path(@room), target: '_top' %>
 
