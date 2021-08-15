@@ -2,8 +2,6 @@
   <%= date.day %>
 
   <% rooms.each do |room| %>
-    <%= turbo_frame_tag "calendar-#{date}" do %>
-      <%= link_to room.name, edit_room_path(room, date: date) %>
-    <% end %>
+    <%= link_to room.name, edit_room_path(room, date: date) %>
   <% end %>
 <% end %>
