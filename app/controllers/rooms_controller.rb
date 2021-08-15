@@ -36,7 +36,13 @@ class RoomsController < ApplicationController
   def update
     respond_to do |format|
       if @room.update(room_params)
+
+        @rooms = Room.all
+        format.turbo_stream {
+          render turbo_stream: turbo_stream.update('calendar', partial: 'calendar')
+        }
         format.html { redirect_to rooms_path, notice: "Room was successfully updated." }
+
 
         # TODO: Mapping updated rooms to calendar.
         # @rooms = Room.all
