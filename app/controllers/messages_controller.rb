@@ -19,9 +19,11 @@ class MessagesController < ApplicationController
     @message = Message.find(params[:id])
     @message.update(message_params)
 
-    respond_to do |format|
-      format.html { redirect_to @room }
-    end
+    render turbo_stream: turbo_stream.replace("message_#{@message.id}", partial: 'messages/message', locals: { message: @message })
+
+    # respond_to do |format|
+    #   format.html { redirect_to @room }
+    # end
   end
 
   private
